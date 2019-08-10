@@ -1,4 +1,4 @@
-[![Build Status](https://badgen.net/travis/eobermuhlner/spel-scriptengine)](https://travis-ci.org/eobermuhlner/spel-scriptengine)
+[![Build Status](https://api.travis-ci.org/eobermuhlner/jshell-scriptengine.svg?branch=master)](https://travis-ci.org/eobermuhlner/spel-scriptengine)
 [![Code Coverage](https://badgen.net/codecov/c/github/eobermuhlner/spel-scriptengine)](https://codecov.io/gh/eobermuhlner/spel-scriptengine)
 [![Open Issues](https://badgen.net/github/open-issues/eobermuhlner/spel-scriptengine)](https://github.com/eobermuhlner/spel-scriptengine/issues)
 [![Commits](https://badgen.net/github/commits/eobermuhlner/spel-scriptengine)](https://github.com/eobermuhlner/spel-scriptengine/graphs/commit-activity)
@@ -8,7 +8,8 @@
 
 The Spring Expression Language (SpEL) is a powerful expression language that supports querying and manipulating an object graph at runtime.
 
-Refer to the [4.2.x Spring Documentation](https://docs.spring.io/spring/docs/4.2.x/spring-framework-reference/html/expressions.html)
+Refer to the
+[5.1.x Spring Documentation](https://docs.spring.io/autorepo/docs/spring/5.1.x/spring-framework-reference/core.html#expressions)
 for details.
 
 The following example shows how to execute a simple SpEL script with variables:
