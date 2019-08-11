@@ -5,8 +5,8 @@ apply plugin: 'signing'
 apply plugin: 'jacoco'
 
 group = 'ch.obermuhlner'
-version = '0.1.0'
-archivesBaseName = 'spring-expression-scriptengine'
+version = '1.0.0'
+archivesBaseName = 'spel-scriptengine'
 
 ext {
     moduleName = "ch.obermuhlner.scriptengine.spring.expression"
@@ -91,18 +91,18 @@ uploadArchives {
 	            packaging 'jar'
 	            // optionally artifactId can be defined here
 	            description 'Java script engine for Spring Expressions.'
-	            url 'https://github.com/eobermuhlner/java-scriptengine'
+	            url 'https://github.com/eobermuhlner/spel-scriptengine'
 
 	            scm {
-	                connection 'scm:git:git://github.com/java-scriptengine.git'
-	                developerConnection 'scm:ssh://github.com:eobermuhlner/java-scriptengine.git'
-	                url 'https://github.com/eobermuhlner/java-scriptengine/'
+	                connection 'scm:git:git://github.com/spel-scriptengine.git'
+	                developerConnection 'scm:ssh://github.com:eobermuhlner/spel-scriptengine.git'
+	                url 'https://github.com/eobermuhlner/spel-scriptengine/'
 	            }
 
 	            licenses {
 	                license {
 	                    name 'MIT License'
-	                    url 'https://raw.githubusercontent.com/eobermuhlner/java-scriptengine/master/LICENSE.txt'
+	                    url 'https://raw.githubusercontent.com/eobermuhlner/spel-scriptengine/master/LICENSE.txt'
 	                }
 	            }
 

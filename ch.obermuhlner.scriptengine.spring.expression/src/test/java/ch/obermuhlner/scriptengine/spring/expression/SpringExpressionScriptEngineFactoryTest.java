@@ -18,7 +18,7 @@ public class SpringExpressionScriptEngineFactoryTest {
     @Test
     public void testGetEngineVersion() {
         SpringExpressionScriptEngineFactory factory = new SpringExpressionScriptEngineFactory();
-        assertThat(factory.getEngineVersion()).isEqualTo("0.1.0");
+        assertThat(factory.getEngineVersion()).isEqualTo("1.0.0");
     }
 
     @Test

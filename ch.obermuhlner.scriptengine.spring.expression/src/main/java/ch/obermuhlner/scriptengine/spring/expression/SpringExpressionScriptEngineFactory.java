@@ -17,7 +17,7 @@ public class SpringExpressionScriptEngineFactory implements ScriptEngineFactory 
 
     @Override
     public String getEngineVersion() {
-        return "0.1.0";
+        return "1.0.0";
     }
 
     @Override
