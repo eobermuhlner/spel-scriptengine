@@ -80,7 +80,49 @@ try {
 Result: Eric1967
 ```
 
+## Compiling 
 
+The `SpringExpressionScriptEngine` implements the `Compilable`
+interface.
 
+You can compile a script into a `CompiledScript` and execute it multiple
+times with different bindings.
 
- 
+```java
+try {
+    ScriptEngineManager manager = new ScriptEngineManager();
+    ScriptEngine engine = manager.getEngineByName("spel");
+    Compilable compiler = (Compilable) engine;
+
+    CompiledScript compiledScript = compiler.compile("#alpha + #beta");
+
+    {
+        Bindings bindings = engine.createBindings();
+
+        bindings.put("alpha", 2);
+        bindings.put("beta", 3);
+        Object result = compiledScript.eval(bindings);
+        System.out.println("Result (Integer): " + result);
+    }
+
+    {
+        Bindings bindings = engine.createBindings();
+
+        bindings.put("alpha", "aaa");
+        bindings.put("beta", "bbb");
+        Object result = compiledScript.eval(bindings);
+        System.out.println("Result (String): " + result);
+    }
+} catch (ScriptException e) {
+    e.printStackTrace();
+}
+``` 
+
+The console output shows that the same compiled script was able to run
+with different bindings, which where even of different runtime types.
+
+```console
+Result (Integer): 5
+Result (String): aaabbb
+``` 
+

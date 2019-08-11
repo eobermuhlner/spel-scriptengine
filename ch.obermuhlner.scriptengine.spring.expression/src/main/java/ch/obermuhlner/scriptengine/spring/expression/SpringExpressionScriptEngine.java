@@ -1,6 +1,7 @@
 package ch.obermuhlner.scriptengine.spring.expression;
 
 import org.springframework.expression.*;
+import org.springframework.expression.spel.SpelParseException;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
@@ -12,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class SpringExpressionScriptEngine implements ScriptEngine {
+public class SpringExpressionScriptEngine implements ScriptEngine, Compilable {
     public static final String ROOT = "_root";
 
     public static int BEAN_SCOPE = 150;
@@ -20,8 +21,6 @@ public class SpringExpressionScriptEngine implements ScriptEngine {
     private ScriptContext context = new SimpleScriptContext();
 
     private final ExpressionParser parser = new SpelExpressionParser();
-    private final StandardEvaluationContext evaluationContext = new StandardEvaluationContext();
-
 
     @Override
     public ScriptContext getContext() {
@@ -91,45 +90,26 @@ public class SpringExpressionScriptEngine implements ScriptEngine {
 
     @Override
     public Object eval(String script, Bindings bindings) throws ScriptException {
-        Expression exp = parser.parseExpression(script);
+        CompiledScript compile = compile(script);
 
-        Bindings globalBindings = context.getBindings(ScriptContext.GLOBAL_SCOPE);
-        Map<String, Object> variables = mergeBindings(globalBindings, bindings);
-        evaluationContext.setVariables(variables);
-
-        Object rootObject = variables.get(ROOT);
-
-        Object result = exp.getValue(evaluationContext, rootObject);
-
-        for (String key : variables.keySet()) {
-            Object value = evaluationContext.lookupVariable(key);
-
-            setBindingsValue(globalBindings, bindings, key, value);
-        }
-
-        return result;
+        return compile.eval(bindings);
     }
 
-    private void setBindingsValue(Bindings globalBindings, Bindings engineBindings, String name, Object value) {
-        if (!engineBindings.containsKey(name) && globalBindings.containsKey(name)) {
-            globalBindings.put(name, value);
-        } else {
-            engineBindings.put(name, value);
+    @Override
+    public CompiledScript compile(String script) throws ScriptException {
+        try {
+            Expression exp = parser.parseExpression(script);
+
+            return new SpringExpressionCompiledScript(this, exp);
+        } catch (Exception ex) {
+            throw new ScriptException(ex);
         }
     }
 
-    private Map<String, Object> mergeBindings(Bindings... bindingsToMerge) {
-        Map<String, Object> variables = new HashMap<>();
+    @Override
+    public CompiledScript compile(Reader reader) throws ScriptException {
 
-        for (Bindings bindings : bindingsToMerge) {
-            if (bindings != null) {
-                for (Map.Entry<String, Object> globalEntry : bindings.entrySet()) {
-                    variables.put(globalEntry.getKey(), globalEntry.getValue());
-                }
-            }
-        }
-
-        return variables;
+        return compile(readScript(reader));
     }
 
     private String readScript(Reader reader) throws ScriptException {
@@ -144,13 +124,6 @@ public class SpringExpressionScriptEngine implements ScriptEngine {
             return s.toString();
         } catch (IOException e) {
             throw new ScriptException(e);
-        }
-    }
-
-    private static class ScriptBeanResolver implements BeanResolver {
-        @Override
-        public Object resolve(EvaluationContext context, String beanName) throws AccessException {
-            return null;
         }
     }
 }

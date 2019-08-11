@@ -61,6 +61,54 @@ public class SpringExpressionScriptEngineTest {
     }
 
     @Test
+    public void testCompilable() throws ScriptException {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("spel");
+        assertThat(engine).isInstanceOf(Compilable.class);
+
+        Compilable compiler = (Compilable) engine;
+
+        CompiledScript compiledScript = compiler.compile("#alpha + #beta");
+
+        {
+            Bindings bindings = engine.createBindings();
+
+            bindings.put("alpha", 2);
+            bindings.put("beta", 3);
+            Object result = compiledScript.eval(bindings);
+            assertThat(result).isEqualTo(5);
+        }
+
+        {
+            Bindings bindings = engine.createBindings();
+
+            bindings.put("alpha", "aaa");
+            bindings.put("beta", "bbb");
+            Object result = compiledScript.eval(bindings);
+            assertThat(result).isEqualTo("aaabbb");
+        }
+    }
+
+    @Test
+    public void testErrors() {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("spel");
+
+        assertThatThrownBy(() -> {
+            Compilable compiler = (Compilable) engine;
+            compiler.compile("#"); // parse error
+        }).isInstanceOf(ScriptException.class);
+
+        assertThatThrownBy(() -> {
+            Object result = engine.eval("#"); // parse error
+        }).isInstanceOf(ScriptException.class);
+
+        assertThatThrownBy(() -> {
+            Object result = engine.eval("1/0"); // evaluation error
+        }).isInstanceOf(ScriptException.class);
+    }
+
+    @Test
     public void testEvalReader() throws ScriptException {
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("spel");
@@ -135,7 +183,7 @@ public class SpringExpressionScriptEngineTest {
     }
 
     @Test
-    public void testGetFactory() throws ScriptException {
+    public void testGetFactory() {
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("spel");
 
