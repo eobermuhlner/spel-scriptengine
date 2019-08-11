@@ -3,6 +3,7 @@
 [![Open Issues](https://badgen.net/github/open-issues/eobermuhlner/spel-scriptengine)](https://github.com/eobermuhlner/spel-scriptengine/issues)
 [![Commits](https://badgen.net/github/commits/eobermuhlner/spel-scriptengine)](https://github.com/eobermuhlner/spel-scriptengine/graphs/commit-activity)
 [![Last Commits](https://badgen.net/github/last-commit/eobermuhlner/spel-scriptengine)](https://github.com/eobermuhlner/spel-scriptengine/graphs/commit-activity)
+[![Maven Central - spel-scriptengine](https://img.shields.io/maven-central/v/ch.obermuhlner/spel-scriptengine.svg)](https://search.maven.org/artifact/ch.obermuhlner/spel-scriptengine)
 
 # Spring Expression Language (SpEL)
 
