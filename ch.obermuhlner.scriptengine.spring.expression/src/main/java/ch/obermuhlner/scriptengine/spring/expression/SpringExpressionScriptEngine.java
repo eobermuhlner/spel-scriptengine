@@ -16,11 +16,9 @@ import java.util.Objects;
 public class SpringExpressionScriptEngine implements ScriptEngine, Compilable {
     public static final String ROOT = "_root";
 
-    public static int BEAN_SCOPE = 150;
+    private final ExpressionParser parser = new SpelExpressionParser();
 
     private ScriptContext context = new SimpleScriptContext();
-
-    private final ExpressionParser parser = new SpelExpressionParser();
 
     @Override
     public ScriptContext getContext() {
