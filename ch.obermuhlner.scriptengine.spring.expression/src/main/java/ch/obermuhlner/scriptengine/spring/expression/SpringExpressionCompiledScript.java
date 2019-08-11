@@ -10,6 +10,9 @@ import javax.script.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Compiled script to be executed in the Spring Expression Language (SpEL).
+ */
 public class SpringExpressionCompiledScript extends CompiledScript {
     private final SpringExpressionScriptEngine engine;
     private final Expression expression;

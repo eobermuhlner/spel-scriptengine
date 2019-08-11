@@ -13,7 +13,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * ScriptEngine to compile or evaluate a Spring Expression Language (SpEL) script.
+ */
 public class SpringExpressionScriptEngine implements ScriptEngine, Compilable {
+    /**
+     * The key used to specify the root object when evaluating a Spring Expression.
+     */
     public static final String ROOT = "_root";
 
     private final ExpressionParser parser = new SpelExpressionParser();

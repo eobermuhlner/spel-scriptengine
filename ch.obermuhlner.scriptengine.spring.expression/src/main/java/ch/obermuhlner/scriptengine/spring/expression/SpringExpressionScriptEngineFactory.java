@@ -5,6 +5,10 @@ import javax.script.ScriptEngineFactory;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ /**
+ * Factory to create a ScriptEngine instance to compile or evaluate a Spring Expression Language (SpEL) script.
+ */
 public class SpringExpressionScriptEngineFactory implements ScriptEngineFactory {
     @Override
     public String getEngineName() {
