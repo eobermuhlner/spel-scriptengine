@@ -1,16 +1,12 @@
 package ch.obermuhlner.scriptengine.spring.expression;
 
 import org.springframework.expression.*;
-import org.springframework.expression.spel.SpelParseException;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
-import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 import javax.script.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 /**

@@ -58,8 +58,9 @@ public class SpringExpressionScriptEngineFactory implements ScriptEngineFactory 
                 return getLanguageVersion();
             case ScriptEngine.NAME:
                 return getNames().get(0);
+            default:
+                return null;
         }
-        return null;
     }
 
     @Override
