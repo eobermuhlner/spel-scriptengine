@@ -27,9 +27,9 @@ public class SpringExpressionCompiledScript extends CompiledScript {
     public Object eval(ScriptContext context) throws ScriptException {
         try {
             Bindings globalBindings = context.getBindings(ScriptContext.GLOBAL_SCOPE);
-            Bindings bindings = context.getBindings(ScriptContext.ENGINE_SCOPE);
+            Bindings engineBindings = context.getBindings(ScriptContext.ENGINE_SCOPE);
 
-            Map<String, Object> variables = mergeBindings(globalBindings, bindings);
+            Map<String, Object> variables = mergeBindings(globalBindings, engineBindings);
             evaluationContext.setVariables(variables);
 
             Object rootObject = variables.get(SpringExpressionScriptEngine.ROOT);
@@ -39,7 +39,7 @@ public class SpringExpressionCompiledScript extends CompiledScript {
             for (String key : variables.keySet()) {
                 Object value = evaluationContext.lookupVariable(key);
 
-                setBindingsValue(globalBindings, bindings, key, value);
+                setBindingsValue(globalBindings, engineBindings, key, value);
             }
 
             return result;
