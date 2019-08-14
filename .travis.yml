@@ -5,6 +5,15 @@ jdk:
 before_install:
   - chmod +x gradlew
 
+addons:
+  sonarcloud:
+    organization: "eobermuhlner"
+    token:
+      secure: NWJ95+vkNVFIvKN/OL6MH5PMM/v6dMeGyfvh0Br+lCWSaoLZBSB8g2dnKzV070Vw0Gi+9DQ9NH2ma6FEFEMoO/ycan8H4xzX4gtRAaOxR4dvOC/fS157WrAndmJjYNg4ioOXPlHo37eEIBr7coTm0F0/cc2szj1Ic6eE+TzFDCoDmI5q+By9bIsx+3PPp/zmVpu98exa/TKw/kPnau6jE7sk782wTxAY3/XZh3tEHrgjr6bOgecKY2NmCj1QNYoVI1EgFN3z7FVndMMvMeMSfRpvllE5BTQ6AfTROPG9gyXn7sJHy5SboXuIZbNobs2z6/ga7a28GNkAQeg7EJ9wshRjec5fVP/oRxPCsbWKMliDK21Jn5qK3x4vB03FazjGqRWANPG2ZkENPlUYJORNa8U6+iAW98H4BQxJoDT24crYVZNYaFiKEGK9XE/yvKhSsyPK2DViJu0Nc7RpngM71J5dpyiqaAtYCarooAGZBteVoa2oXNsBQEmFI0+7nnxb09JUVSofyFdvfkRsC9hkDcLTY1gkPrQQKvevFef44ujzV+WC9ate4AWngz6NqqkXLJ0Y09JidXIbG4O2zOmwsjNqGYhPYrKico+MTMpjkacwxMbotJ3/tRdt7Lm+JAeGOKxeSHnW0TgiAHTXX9T1j3VvA2kUYwF6YeDZ77tkjFY=
+
+script:
+  - ./gradlew sonarqube
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
