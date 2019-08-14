@@ -34,6 +34,12 @@ test {
     }
 }
 
+sonarqube {
+    properties {
+        property "sonar.projectKey" spel-scriptengine
+    }
+}
+
 jacocoTestReport {
     reports {
         xml.enabled = true
