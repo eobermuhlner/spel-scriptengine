@@ -1,6 +1,6 @@
 [![Build Status](https://api.travis-ci.org/eobermuhlner/jshell-scriptengine.svg?branch=master)](https://travis-ci.org/eobermuhlner/spel-scriptengine)
 [![Code Coverage](https://badgen.net/codecov/c/github/eobermuhlner/spel-scriptengine)](https://codecov.io/gh/eobermuhlner/spel-scriptengine)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=spel-scriptengine%3Ach.obermuhlner.scriptengine.spring.expression&metric=alert_status)](https://sonarcloud.io/dashboard?id=spel-scriptengine%3Ach.obermuhlner.scriptengine.spring.expression)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=spel-scriptengine&metric=alert_status)](https://sonarcloud.io/dashboard?id=spel-scriptengine)
 [![Open Issues](https://badgen.net/github/open-issues/eobermuhlner/spel-scriptengine)](https://github.com/eobermuhlner/spel-scriptengine/issues)
 [![Last Commits](https://badgen.net/github/last-commit/eobermuhlner/spel-scriptengine)](https://github.com/eobermuhlner/spel-scriptengine/graphs/commit-activity)
 [![Maven Central - spel-scriptengine](https://img.shields.io/maven-central/v/ch.obermuhlner/spel-scriptengine.svg)](https://search.maven.org/artifact/ch.obermuhlner/spel-scriptengine)
