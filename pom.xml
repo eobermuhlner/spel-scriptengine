@@ -3,15 +3,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.obermuhlner</groupId>
-  <artifactId>scriptengine-jshell</artifactId>
+  <artifactId>scriptengine-spel</artifactId>
   <version>0.1.0</version>
-  <name>JShell ScriptEngine</name>
-  <description>Java script engine for JShell.</description>
-  <url>https://github.com/eobermuhlner/java-scriptengine</url>
+  <name>SpEL ScriptEngine</name>
+  <description>Java script engine for SpEL.</description>
+  <url>https://github.com/eobermuhlner/spel-scriptengine</url>
   <licenses>
     <license>
       <name>MIT License</name>
-      <url>https://raw.githubusercontent.com/eobermuhlner/java-scriptengine/master/LICENSE.txt</url>
+      <url>https://raw.githubusercontent.com/eobermuhlner/spel-scriptengine/master/LICENSE.txt</url>
     </license>
   </licenses>
   <developers>
@@ -22,9 +22,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git://github.com/java-scriptengine.git</connection>
-    <developerConnection>scm:ssh://github.com:eobermuhlner/java-scriptengine.git</developerConnection>
-    <url>https://github.com/eobermuhlner/java-scriptengine/</url>
+    <connection>scm:git:git://github.com/spel-scriptengine.git</connection>
+    <developerConnection>scm:ssh://github.com:eobermuhlner/spel-scriptengine.git</developerConnection>
+    <url>https://github.com/eobermuhlner/spel-scriptengine/</url>
   </scm>
   <dependencies>
     <dependency>
